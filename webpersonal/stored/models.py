@@ -108,9 +108,9 @@ class Cliente(models.Model):
     last = models.CharField(max_length=80, verbose_name="Apellidos")
     description = models.TextField(verbose_name="Descripción")
     sexo = models.CharField(max_length=1, choices=sexos, default='F')
-    localidad = models.ForeignKey(
+    localid = models.ForeignKey(
         Localidd, null=True, blank=True, on_delete=models.CASCADE)
-    municipio = models.ForeignKey(
+    municip = models.ForeignKey(
         Municip, null=True, blank=True, on_delete=models.CASCADE)
     phone = models.CharField(max_length=100, verbose_name="Telefono")
     image = models.ImageField(verbose_name="Capturar", upload_to="clients")
@@ -130,16 +130,16 @@ class Cliente(models.Model):
     
 
 class Entradas(models.Model):
-    codigo = models.ForeignKey(
+    cod = models.ForeignKey(
         Produc, null=True, blank=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=200, verbose_name="Nombre")
     description = models.TextField(verbose_name="Descripción")
     amount = models.PositiveIntegerField(verbose_name="Cantidad")
     price = models.PositiveIntegerField(verbose_name="Precio")
     expiration = models.CharField(max_length=40, verbose_name="Caducidad")
-    categoria = models.ForeignKey(
+    catego = models.ForeignKey(
         Categ, null=True, blank=True, on_delete=models.CASCADE)
-    porveedor = models.ForeignKey(
+    porved = models.ForeignKey(
         Proveedor, null=True, blank=True, on_delete=models.CASCADE)
     image = models.ImageField(verbose_name="Capturar",
                               upload_to="salidaProducts")
@@ -160,20 +160,20 @@ class Entradas(models.Model):
 
 
 class Salida(models.Model):
-    codigo = models.ForeignKey(
+    cod = models.ForeignKey(
         Produc, null=True, blank=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=200, verbose_name="Nombre")
     description = models.TextField(verbose_name="Descripción")
     amount = models.PositiveIntegerField(verbose_name="Cantidad")
     price = models.PositiveIntegerField(verbose_name="Precio")
     expiration = models.CharField(max_length=40, verbose_name="Caducidad")
-    categoria = models.ForeignKey(
+    catego = models.ForeignKey(
         Categ, null=True, blank=True, on_delete=models.CASCADE)
-    cliente = models.ForeignKey(
+    client = models.ForeignKey(
         Cliente, null=True, blank=True, on_delete=models.CASCADE)
-    localidad = models.ForeignKey(
+    localid = models.ForeignKey(
         Localidd, null=True, blank=True, on_delete=models.CASCADE)
-    municipio = models.ForeignKey(
+    municip = models.ForeignKey(
         Municip, null=True, blank=True, on_delete=models.CASCADE)
     image = models.ImageField(verbose_name="Capturar",
                               upload_to="salidaProducts")

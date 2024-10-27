@@ -1,12 +1,9 @@
 from django.db import models
 
-from stored.models import Categ, Localidd, Municip, Produc
-
 # Create your models here.
 
 class Discounts(models.Model):
-    Codigo = models.ForeignKey(
-        Produc, null=True, blank=True, on_delete=models.CASCADE)
+    code = models.CharField(max_length=100, verbose_name="Codigo De Producto")
     name = models.CharField(max_length=200, verbose_name="Nombre")
     description = models.TextField(verbose_name="Descripción")
     discount = models.PositiveIntegerField(verbose_name="Descuento")
@@ -33,10 +30,8 @@ class Discounts(models.Model):
     
 class Sucursales(models.Model):
     code = models.CharField(max_length=200, verbose_name="Numero de Tienda")
-    localidad = models.ForeignKey(
-        Localidd, null=True, blank=True, on_delete=models.CASCADE)
-    municipio = models.ForeignKey(
-        Municip, null=True, blank=True, on_delete=models.CASCADE)
+    name = models.CharField(max_length=200, verbose_name="Localidad")
+    municipality = models.CharField(max_length=200, verbose_name="Municipio")
     description = models.TextField(verbose_name="Descripción")
     schedule = models.CharField(max_length=200, verbose_name="Horario de atención")
     days = models.CharField(max_length=200, verbose_name="Dias de atención") 
@@ -76,11 +71,9 @@ class Contactos(models.Model):
 
 
 class Catalago(models.Model):
-    Codigo = models.ForeignKey(
-        Produc, null=True, blank=True, on_delete=models.CASCADE)
+    code = models.CharField(max_length=200, verbose_name="Codigo")
     name = models.CharField(max_length=200, verbose_name="Nombre")
-    categoria = models.ForeignKey(
-        Categ, null=True, blank=True, on_delete=models.CASCADE)
+    category = models.CharField(max_length=200, verbose_name="Categoria")
     description = models.TextField(verbose_name="Descripción")
     price = models.PositiveIntegerField(verbose_name="Precio")
     amount = models.PositiveIntegerField(verbose_name="Cantidad")
