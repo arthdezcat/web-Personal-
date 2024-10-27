@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'core',
     'front.apps.FrontConfig',
     'stored.apps.StoredConfig',
-    "colorfield",
 ]
 
 X_FRAME_OPTIONS = "SAMEORIGIN"
