@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Acerca de{% endblock %}
+
+{% block background %}{% load static %}{% static 'core/img/product.jpg' %}{% endblock %}
+
+{% block headers %}
+<h1>Servicio Tecnico</h1>
+<span class="subheading">Servicio Tenico en Celulares, Laptops y Equipo de Computo</span>
+{% endblock %}
+
+{%block content%}
+{% for About in projectAbouts %}
+<!-- Proyecto -->
+<div class="row About">  	
+    <div class="col-lg-3 col-md-4 offset-lg-1">
+        <img class="img-fluid" src="{{About.image.url}}" alt="">
+    </div>
+  <div class="col-lg-7 col-md-8">
+        <h2 class="section-heading title">{{About.title}}</h2>   
+    <p>{{About.description}}</p>
+    <!--{% if About.link %}
+   <p><a href="{{About.link}}">Más información</a></p>
+   {% endif %}-->
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
